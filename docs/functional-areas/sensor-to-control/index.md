@@ -4,7 +4,7 @@ page_id: stabilizer_index
 ---
 
 This page is meant as an introduction and overview of the path from
-sensor acquisition to motor control,also called the stabilizer module. It will not go into detail but it mostly give a general outline of how the sensor measurements go to the
+sensor acquisition to motor control, also called the stabilizer module. It will not go into detail but it mostly gives a general outline of how the sensor measurements go to the
 state estimators to the controllers and finally distributed to the motors
 by power distribution. Of course, the motors have an affect on how the
 Crazyflie flies and that indirectly has an effect on what the sensors
@@ -21,7 +21,7 @@ detect in the next time step.
 
 ### Overview
 
-![sensor](/docs/images/sensors_to_motors.png){:width="700"}
+![sensor](/docs/images/sensors_to_motors.png)
 
 ## Modules
 
@@ -72,26 +72,18 @@ Go to the [controllers page](controllers.md), for more in-depth information.
 
 
 ### Commander Framework
-An desired state can be handled by the set-point structure in position or attitude, which can be set by the [cflib](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/) or the High Level commander.
+A desired state can be handled by the set-point structure in position or attitude, which can be set by the [cflib](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/) or the High Level commander.
 
 Go to the [Commander page](commanders_setpoints.md), for more in-depth information.
 
 ### Power Distribution
 
-After the state controller has send out its commands, this is not the end of the line yet.
+After the state controller has sent out its commands, this is not the end of the line yet.
 The controllers send out their commands relating to their yaw, roll and pitch angles.
 How the motors should respond in order to adhere these attitude based commands depends on a few factors:
-  * Quadrotor configuration (found in: `power_distribution_stock.c`:
-    * x-configuration: The body fixed coordinate system's x-axis is pointed in between two propellors (Default)
-    * +-configuration: The body fixed coordinate system's x-axis is pointed in one propellor
   * Motors:
     * Brushed: The Crazyflie has brushed motors, of which there is battery compensation function enabled. Check out `motors.c` to learn more. Also checkout the [PWM to Thrust investigations](/docs/functional-areas/pwm-to-thrust.md) of those same motors.
     * Brushless: The Bolt enables the control of brushless motors. Checkout the[ product page of the Bolt](https://www.bitcraze.io/products/crazyflie-bolt/) for more information.
 
-
- 
 ## Configuring Controllers and Estimators
-Go to this [configuration page](configure_estimator_controller.md), if you would like to configure different controllers and estimators,
-
-
-
+Go to this [configuration page](configure_estimator_controller.md), if you would like to configure different controllers and estimators.
